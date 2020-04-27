@@ -40,7 +40,7 @@ class _AboutState extends State<About> {
           children: <Widget>[
             Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 80.0),
+              padding: EdgeInsets.only(top: 60.0),
               child: Text(
                 "COVID-19",
                 style: GoogleFonts.comfortaa(
@@ -53,7 +53,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 30.0),
+              padding: EdgeInsets.only(bottom: 40.0),
               child: Text(
                 "monitoring",
                 style: GoogleFonts.comfortaa(
@@ -66,7 +66,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.only(bottom: 6.0),
               child: Text(
                 "Versão",
                 style: GoogleFonts.comfortaa(
@@ -79,7 +79,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 30.0),
+              padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
                 "1.0.0",
                 style: GoogleFonts.comfortaa(
@@ -92,7 +92,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.only(bottom: 6.0),
               child: Text(
                 "Desenvolvedor",
                 style: GoogleFonts.comfortaa(
@@ -105,7 +105,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.only(bottom: 6.0),
               child: Text(
                 "Matheus Carneiro Vasconcelos",
                 style: GoogleFonts.comfortaa(
@@ -118,7 +118,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 30.0),
+              padding: EdgeInsets.only(bottom: 20.0),
               child: InkWell(
                 onTap: () => setState(() {
                   _launchedDev = _launchInBrowser(toLaunchDev);
@@ -137,7 +137,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.only(bottom: 6.0),
               child: Text(
                 "API",
                 style: GoogleFonts.comfortaa(
@@ -150,7 +150,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.only(bottom: 6.0),
               child: Text(
                 "COVID-19 BrazilAPI",
                 style: GoogleFonts.comfortaa(
@@ -163,7 +163,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 30.0),
+              padding: EdgeInsets.only(bottom: 20.0),
               child: InkWell(
                 onTap: () => setState(() {
                   _launchedDev = _launchInBrowser(toLaunchApi);
@@ -182,7 +182,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.only(bottom: 6.0),
               child: Text(
                 "Fonte",
                 style: GoogleFonts.comfortaa(
@@ -195,7 +195,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.only(bottom: 6.0),
               child: Text(
                 "World Heath Organization",
                 style: GoogleFonts.comfortaa(
