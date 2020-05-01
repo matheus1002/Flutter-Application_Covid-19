@@ -27,7 +27,6 @@ class _CountriesState extends State<Countries> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.green,
       backgroundColor: Color(0xB3063d61),
       body: FutureBuilder(
         future: _getStatistics(),
@@ -57,7 +56,7 @@ class _CountriesState extends State<Countries> {
                   ),
                 );
               } else {
-                return _createStatisticsTable(context, snapshot); 
+                return _createStatisticsTable(context, snapshot);
               }
           }
         },

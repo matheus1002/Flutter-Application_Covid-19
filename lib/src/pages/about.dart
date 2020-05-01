@@ -9,6 +9,7 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
+
   Future<void> _launchedDev;
   Future<void> _launchedApi;
   Future<void> _launchedWho;
