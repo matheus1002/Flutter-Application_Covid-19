@@ -6,11 +6,10 @@ class States extends StatefulWidget {
 }
 
 class _StatesState extends State<States> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.blue,
+      //backgroundColor: Colors.green,
       backgroundColor: Color(0xB3063d61),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -30,4 +29,6 @@ class _StatesState extends State<States> {
       ),
     );
   }
+
+
 }
