@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
                       textAlign: TextAlign.center,
                       style: GoogleFonts.comfortaa(
                         textStyle: TextStyle(
-                          fontSize: 25.0,
+                          fontSize: 18.0,
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
                         ),
@@ -63,13 +63,13 @@ class _HomeState extends State<Home> {
                   );
                 } else {
 
-                  /* VARIÁVEIS DE FOMRATAÇÃO DE DATA */
+                  /* VARIÁVEIS DE FORMATAÇÃO DE DATA */
                   String date = snapshot.data["data"]["updated_at"];
                   String _dateFormatted = dateFormat.format(DateTime.parse(date));
 
                   return Container(
                       alignment: Alignment.topCenter,
-                      padding: EdgeInsets.only(top: 120.0),
+                      padding: EdgeInsets.only(top: 80.0),
                       child: Column(
                         children: <Widget>[
                           Container(
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
                               "COVID-19",
                               style: GoogleFonts.comfortaa(
                                 textStyle: TextStyle(
-                                  fontSize: 52.0,
+                                  fontSize: 58.0,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700,
                                 ),
@@ -85,7 +85,7 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           Container(
-                            padding: EdgeInsets.only(bottom: 60.0),
+                            padding: EdgeInsets.only(bottom: 50.0),
                             child: Text(
                               "monitoring",
                               style: GoogleFonts.comfortaa(
@@ -98,7 +98,7 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           Card(
-                            margin: EdgeInsets.fromLTRB(40.0, 20.0, 40.0, 0),
+                            margin: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0),
                             color: Colors.white,
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(

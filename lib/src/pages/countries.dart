@@ -9,10 +9,18 @@ class Countries extends StatefulWidget {
 }
 
 class _CountriesState extends State<Countries> {
+  //String _search;
+
   Future<Map> _getStatistics() async {
     http.Response response;
-    response = await http
-        .get("https://covid19-brazil-api.now.sh/api/report/v1/countries");
+
+    //if (_search == null)
+      response = await http
+          .get("https://covid19-brazil-api.now.sh/api/report/v1/countries");
+    //else
+      //response = await http
+          //.get("https://covid19-brazil-api.now.sh/api/report/v1/brazil");
+
     return jsonDecode(response.body);
   }
 
@@ -48,7 +56,7 @@ class _CountriesState extends State<Countries> {
                     textAlign: TextAlign.center,
                     style: GoogleFonts.comfortaa(
                       textStyle: TextStyle(
-                        fontSize: 25.0,
+                        fontSize: 18.0,
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                       ),
@@ -57,6 +65,48 @@ class _CountriesState extends State<Countries> {
                 );
               } else {
                 return _createStatisticsTable(context, snapshot);
+                /*return Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+                      child: Theme(
+                        data: ThemeData(
+                          primaryColor: Colors.white,
+                        ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            labelText: "Pesquise Aqui!",
+                            labelStyle: TextStyle(
+                              color: Colors.white,
+                              decorationColor: Colors.white,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 2.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 2.0),
+                            ),
+                          ),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                          ),
+                          textAlign: TextAlign.center,
+                          onSubmitted: (text) {
+                            setState(() {
+                              _search = text;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: _createStatisticsTable(context, snapshot),
+                    ),
+                  ],
+                );*/
               }
           }
         },
@@ -64,11 +114,11 @@ class _CountriesState extends State<Countries> {
     );
   }
 
-  Widget _createStatisticsTable(BuildContext context, AsyncSnapshot snapshot){
+  Widget _createStatisticsTable(BuildContext context, AsyncSnapshot snapshot) {
     return ListView.builder(
       padding: EdgeInsets.all(10.0),
       itemCount: snapshot.data["data"].length,
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         return Card(
           margin: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
           color: Colors.white,
@@ -77,8 +127,7 @@ class _CountriesState extends State<Countries> {
             child: Column(
               children: <Widget>[
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
                       "País",
@@ -105,8 +154,7 @@ class _CountriesState extends State<Countries> {
                 ),
                 Divider(),
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
                       "Casos",
@@ -120,8 +168,7 @@ class _CountriesState extends State<Countries> {
                     ),
                     SizedBox(height: 6.0),
                     Text(
-                      snapshot.data["data"][index]["cases"]
-                          .toString(),
+                      snapshot.data["data"][index]["cases"].toString(),
                       style: GoogleFonts.comfortaa(
                         textStyle: TextStyle(
                           fontSize: 16.0,
@@ -134,8 +181,7 @@ class _CountriesState extends State<Countries> {
                 ),
                 Divider(),
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
                       "Confirmados",
@@ -149,8 +195,7 @@ class _CountriesState extends State<Countries> {
                     ),
                     SizedBox(height: 6.0),
                     Text(
-                      snapshot.data["data"][index]["confirmed"]
-                          .toString(),
+                      snapshot.data["data"][index]["confirmed"].toString(),
                       style: GoogleFonts.comfortaa(
                         textStyle: TextStyle(
                           fontSize: 16.0,
@@ -163,8 +208,7 @@ class _CountriesState extends State<Countries> {
                 ),
                 Divider(),
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
                       "Mortes",
@@ -178,8 +222,7 @@ class _CountriesState extends State<Countries> {
                     ),
                     SizedBox(height: 6.0),
                     Text(
-                      snapshot.data["data"][index]["deaths"]
-                          .toString(),
+                      snapshot.data["data"][index]["deaths"].toString(),
                       style: GoogleFonts.comfortaa(
                         textStyle: TextStyle(
                           fontSize: 16.0,
@@ -192,8 +235,7 @@ class _CountriesState extends State<Countries> {
                 ),
                 Divider(),
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
                       "Recuperados",
@@ -207,8 +249,7 @@ class _CountriesState extends State<Countries> {
                     ),
                     SizedBox(height: 6.0),
                     Text(
-                      snapshot.data["data"][index]["recovered"]
-                          .toString(),
+                      snapshot.data["data"][index]["recovered"].toString(),
                       style: GoogleFonts.comfortaa(
                         textStyle: TextStyle(
                           fontSize: 16.0,
@@ -226,5 +267,4 @@ class _CountriesState extends State<Countries> {
       },
     );
   }
-
 }

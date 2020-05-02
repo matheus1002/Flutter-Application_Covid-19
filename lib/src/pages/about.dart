@@ -54,7 +54,7 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 40.0),
+              padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
                 "monitoring",
                 style: GoogleFonts.comfortaa(
