@@ -1,6 +1,7 @@
 import 'package:covid19/src/pages/about.dart';
 import 'package:covid19/src/pages/countries.dart';
 import 'package:covid19/src/pages/home.dart';
+import 'package:covid19/src/pages/recommendation.dart';
 import 'package:covid19/src/pages/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -49,12 +50,13 @@ class _MainAppState extends State<MainApp> {
             Home(),
             States(),
             Countries(),
+            Recommendation(),
             About(),
           ],
           controller: _controller,
         ),
         align: IndicatorAlign.bottom,
-        length: 4,
+        length: 5,
         indicatorSpace: 20.0,
         padding: const EdgeInsets.all(10),
         indicatorColor: Color(0xB3063d61),

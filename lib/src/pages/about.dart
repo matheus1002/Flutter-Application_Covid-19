@@ -13,6 +13,7 @@ class _AboutState extends State<About> {
   Future<void> _launchedDev;
   Future<void> _launchedApi;
   Future<void> _launchedWho;
+  Future<void> _launchedMin;
 
   Future<void> _launchInBrowser(String url) async {
     if (await canLaunch(url)) {
@@ -33,6 +34,7 @@ class _AboutState extends State<About> {
     const String toLaunchApi =
         'https://github.com/devarthurribeiro/covid19-brazil-api';
     const String toLaunchWho = 'https://www.who.int/';
+    const String toLaunchMin = 'https://coronavirus.saude.gov.br/';
 
     return Scaffold(
       backgroundColor: Color(0xB3063d61),
@@ -82,7 +84,7 @@ class _AboutState extends State<About> {
             Container(
               padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
-                "1.0.0",
+                "1.0.2",
                 style: GoogleFonts.comfortaa(
                   textStyle: TextStyle(
                     fontSize: 14.0,
@@ -209,13 +211,45 @@ class _AboutState extends State<About> {
               ),
             ),
             Container(
-              //padding: EdgeInsets.only(bottom: 60.0),
+              padding: EdgeInsets.only(bottom: 15.0),
               child: InkWell(
                 onTap: () => setState(() {
                   _launchedDev = _launchInBrowser(toLaunchWho);
                 }),
                 child: Text(
                   "www.who.int",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.comfortaa(
+                    textStyle: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(bottom: 6.0),
+              child: Text(
+                "Ministério da Saúde",
+                style: GoogleFonts.comfortaa(
+                  textStyle: TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(bottom: 15.0),
+              child: InkWell(
+                onTap: () => setState(() {
+                  _launchedMin = _launchInBrowser(toLaunchMin);
+                }),
+                child: Text(
+                  "coronavirus.saude.gov.br",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.comfortaa(
                     textStyle: TextStyle(

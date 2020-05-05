@@ -9,18 +9,11 @@ class Countries extends StatefulWidget {
 }
 
 class _CountriesState extends State<Countries> {
-  //String _search;
 
   Future<Map> _getStatistics() async {
     http.Response response;
-
-    //if (_search == null)
-      response = await http
+    response = await http
           .get("https://covid19-brazil-api.now.sh/api/report/v1/countries");
-    //else
-      //response = await http
-          //.get("https://covid19-brazil-api.now.sh/api/report/v1/brazil");
-
     return jsonDecode(response.body);
   }
 
@@ -64,41 +57,31 @@ class _CountriesState extends State<Countries> {
                   ),
                 );
               } else {
-                return _createStatisticsTable(context, snapshot);
-                /*return Column(
+                return Column(
                   children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
-                      child: Theme(
-                        data: ThemeData(
-                          primaryColor: Colors.white,
-                        ),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: "Pesquise Aqui!",
-                            labelStyle: TextStyle(
-                              color: Colors.white,
-                              decorationColor: Colors.white,
+                    Card(
+                      margin: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  "Países",
+                                  style: GoogleFonts.comfortaa(
+                                    textStyle: TextStyle(
+                                      fontSize: 18.0,
+                                      color: Color(0xB3063d61),
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 2.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 2.0),
-                            ),
-                          ),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.0,
-                          ),
-                          textAlign: TextAlign.center,
-                          onSubmitted: (text) {
-                            setState(() {
-                              _search = text;
-                            });
-                          },
+                          ],
                         ),
                       ),
                     ),
@@ -106,7 +89,7 @@ class _CountriesState extends State<Countries> {
                       child: _createStatisticsTable(context, snapshot),
                     ),
                   ],
-                );*/
+                );
               }
           }
         },
