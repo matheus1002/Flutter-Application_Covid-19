@@ -16,7 +16,7 @@ class _RecommendationState extends State<Recommendation> {
       body: ListView(
         children: <Widget>[
           Card(
-            margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 10.0),
+            margin: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
             color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
