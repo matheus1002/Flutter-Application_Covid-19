@@ -1,19 +1,86 @@
-import 'package:covid19/src/pages/about.dart';
-import 'package:covid19/src/pages/countries.dart';
-import 'package:covid19/src/pages/home.dart';
-import 'package:covid19/src/pages/recommendation.dart';
-import 'package:covid19/src/pages/states.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:page_indicator/page_indicator.dart';
+import 'package:covid19/src/view/home_page.dart';
+import 'package:covid19/src/view/states_page.dart';
+import 'package:covid19/src/view/countries_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MaterialApp(
     home: MainApp(),
+    title: "Covid Monitoring",
     debugShowCheckedModeBanner: false,
   ));
 }
 
+class MainApp extends StatefulWidget {
+  @override
+  _MainAppState createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+
+  int _currentIndex = 0;
+  final List<Widget> _children =
+  [
+    HomePage(),
+    StatePage(),
+    CountriesPage(),
+  ];
+
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onTappedBar(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _children[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.home),
+            title: Text('Início'),
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.solidFlag),
+            title: Text('Estados'),
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.globeAmericas),
+            title: Text('Países'),
+          ),
+        ],
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.deepPurpleAccent,
+        onTap: _onTappedBar,
+      ),
+    );
+
+  }
+
+}
+
+
+/*
 class MainApp extends StatefulWidget {
   @override
   _MainAppState createState() => _MainAppState();
@@ -64,5 +131,6 @@ class _MainAppState extends State<MainApp> {
         shape: IndicatorShape.circle(size: 12));
   }
 }
+*/
 
 
