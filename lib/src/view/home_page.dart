@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,10 +13,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   Future<Map> getWeather() async {
     http.Response response = await http
         .get("https://covid19-brazil-api.now.sh/api/report/v1/brazil");
     return jsonDecode(response.body);
+  }
+
+  _launchURL() async {
+    const url = 'https://github.com/matheus1002';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -59,6 +70,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             } else {
+
               /* VARIÁVEIS DE FORMATAÇÃO DE DATA */
               String date = snapshot.data["data"]["updated_at"];
               String _dateFormatted = dateFormat.format(DateTime.parse(date));
@@ -90,7 +102,20 @@ class _HomePageState extends State<HomePage> {
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
                               ),
-                            ))
+                            )),
+                        Padding(
+                            padding: EdgeInsets.all(6.0),
+                            child: InkWell(
+                              onTap: _launchURL,
+                              child: Text(
+                                "@matheus100",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13.0
+                                ),
+                              ),
+                            )
+                        ),
                       ],
                     ),
                   ),
