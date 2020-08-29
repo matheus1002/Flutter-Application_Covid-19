@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                             child: InkWell(
                               onTap: _launchURL,
                               child: Text(
-                                "@matheus100",
+                                "@matheus1002",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 13.0
